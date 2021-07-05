@@ -1,6 +1,6 @@
 # from os import add_dll_directory
 from re import T
-from bitcoinlib.transactions import Transaction
+# from bitcoinlib.transactions import Transaction
 from sanic.response import json
 from utilities.connection import conn
 # from bitcoinlib.wallets import Wallet, wallet_create_or_open, Value
