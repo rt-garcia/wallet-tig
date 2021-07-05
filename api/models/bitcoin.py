@@ -1,4 +1,4 @@
-from os import add_dll_directory
+# from os import add_dll_directory
 from re import T
 from bitcoinlib.transactions import Transaction
 from sanic.response import json
