@@ -17,6 +17,8 @@ app.config.RESPONSE_TIMEOUT = 45
 app.config.REQUEST_TIMEOUT = 45
 
 with JWT.initialize(app) as manager:
+    manager.config.use_acl = True
+    manager.config.acl_claim = "role"
     manager.config.access_token_expires = timedelta(hours=10)
     manager.config.refresh_token_expires = timedelta(minutes=30)
     manager.config.csrf_protect = True
@@ -24,8 +26,6 @@ with JWT.initialize(app) as manager:
         'POST', 'PUT', 'PATCH', 'DELETE', 'GET')
     manager.config.jwt_csrf_header = 'X-CSRF-Token'
     manager.config.refresh_jwt_csrf_header = 'X-CSRF-Refresh'
-    # manager.config.jwt_cookie = 'X-TOKEN-COOKIE'
-    # manager.config.refresh_jwt_cookie = 'X-REFRESH-COOKIE'
     manager.config.secret_key = "AF3A7D8FAC625C9EC90A5D15C265BF7FC793B8E06D0B67A7D675430175B81D57EON[MlO17rwTNTOP"
     manager.config.jwt_header_key = "Authorization"
     manager.config.refresh_jwt_header_key = "X-Refresh"
